@@ -74,3 +74,8 @@
     {{nome}}
 
     Com isso você conseguirá puxar o valor do dicionário e exibir dentro da sua página HTML.
+
+# Font Awesome
+    Podemos usar o Font-Awesome para colocar icones no nosso arquivo HTML
+    No site https://cdnjs.com/libraries/font-awesome/5.15.4 você encontrar as versões e os códigos para importar no seu arquivo HTML
+    e no site https://fontawesome.com/icons você encontrará os icones e os códigos para usa-los.
