@@ -4,6 +4,7 @@ from django.shortcuts import render
 def home(request):
     utils = {
         'title': 'HomePage',
+        'nome': 'David Marques',
     }
 
-    return render(request, 'index.html', context=utils)
+    return render(request, 'recipes/pages/index.html', context=utils)
