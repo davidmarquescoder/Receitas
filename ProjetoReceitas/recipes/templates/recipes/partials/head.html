@@ -155,5 +155,16 @@
             right: 0;
         }
 
+        .main-content{
+            padding-top: 0;
+        }
+
+        .main-content-list{
+            display: grid;
+            /* E para deixar responsivo, vamo usar isso*/
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: var(--spacing-gutter-large);
+        }
+
     </style>
 </head>

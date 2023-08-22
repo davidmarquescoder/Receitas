@@ -79,3 +79,12 @@
     Podemos usar o Font-Awesome para colocar icones no nosso arquivo HTML
     No site https://cdnjs.com/libraries/font-awesome/5.15.4 você encontrar as versões e os códigos para importar no seu arquivo HTML
     e no site https://fontawesome.com/icons você encontrará os icones e os códigos para usa-los.
+
+# Truques do emmet abrevietion
+    Vamos supor que eu queira criar 10 divs iguais de uma única vez, sem precisar escrever 10x, eu posso fazer assim:
+
+    >>>> div*10
+
+    Após pressionar enter, ele vai criar 10 div de uma vez pra você, o mesmo vale para qualquer outra tag e até mesmo se quiser criar com classe definida. ex:
+    
+    >>>> div.temp*10
