@@ -53,6 +53,10 @@
 
     > Crie dentro da pasta do App uma pasta chamada 'static', a mesma servirá para armazenar nossos arquivos estáticos (CSS, IMG, JS)
 
+    > Criar pasta/arquivo 'base_static/global/css/style.css' e configura-la no settings.py (STATICFILES_DIRS)
+
+    > Configurar o STATIC_ROOT no arquivo settings.py
+
     > No arquivo 'settings.py' do projeto, adicione o nome do nosso App criado dentro da lista 'INSTALLED_APPS'
 
     > Dentro do nosso arquivo 'views.py' do nosso App, vamos criar nossas views, definidas funções que retornam um template HTML
@@ -124,4 +128,20 @@
     ]
 
     Consulte a documentação da STATICFILES_FINDERS (https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-STATICFILES_FINDERS) para obter detalhes sobre como staticfiles localiza seus arquivos.
+
+# STATIC_ROOT e collectstatic
+    Enquanto estamos em desenvolvimento, não há problema em usar nossos arquivos estáticos dessa maneira, dentro da pasta do App ou até mesmo na raiz. Porém quando nosso
+    projeto for para produção, precisaremos fazer algumas configurações de segurança e após isso, os nossos arquivos estáticos não serão mais buscados pelo Django, devido
+    isso vamos precisar configurar e entender o 'STATIC_ROOT' e o comando 'collectstatic'
+
+    Dentro do arquivo settings.py, vamos passar a variável " STATIC_ROOT = BASE_DIR / 'static' "
+    com isso o STATIC_ROOT já estará configurado, esse comando, basicamente, configura ONDE e o NOME da pasta a ser criada com nossos arquivos estáticos
+    nesse caso, nossa pasta será criada na Raiz com o nome de 'static'
+
+    Após isso, quando formos entrar em produção, vamos rodar o comando:
+    
+    >>>> python manage.py collectstatic
+
+    E esse comando vai coletar todos os arquivos estáticos do nosso projeto, e vai criar a pasta configurada com STATIC_ROOT e jogar esse arquivos dentro dessa pasta
+    para que a gente possa usar esses arquivos quando entrar em produção.
     
