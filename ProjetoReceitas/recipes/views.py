@@ -16,4 +16,4 @@ def recipe(request, id):
         'nome': 'David Marques',
     }
 
-    return render(request, 'recipes/pages/index.html', context=utils)
+    return render(request, 'recipes/pages/recipe-view.html', context=utils)
