@@ -51,7 +51,9 @@
 
     > Crie dentro da pasta do App uma pasta chamada 'templates', a mesma servirá para armazenar nossos templates HTML
 
-    > No arquivo 'settings.py' do projeto, adicione o nome do nosso App criado dentro da lista 'INSTALLED_APPS'    
+    > Crie dentro da pasta do App uma pasta chamada 'static', a mesma servirá para armazenar nossos arquivos estáticos (CSS, IMG, JS)
+
+    > No arquivo 'settings.py' do projeto, adicione o nome do nosso App criado dentro da lista 'INSTALLED_APPS'
 
     > Dentro do nosso arquivo 'views.py' do nosso App, vamos criar nossas views, definidas funções que retornam um template HTML
     | Obs: Utilizaremos a função 'render' para renderizar nossos templates | Ex: return render(request, 'recipes/pages/index.html', context=utils)
@@ -96,3 +98,20 @@
     Após pressionar enter, ele vai criar 10 div de uma única vez para você, o mesmo vale para qualquer outra tag e até mesmo se quiser criar com classe definida. ex:
 
     >>>> div.temp*10
+
+# Arquivos Estáticos
+    Arquivos estáticos são arquivos que são entregues exatamente como estão salvos. Esses arquivos quase não sofrem alterações, por isso, o navegador pode salvá-los em cache para que o conteúdo da página carregue mais rapidamente para o usuário final. Alguns provedores de Internet também adicionam servidores no meio da rede que também podem fazer cache desse arquivos, assim o próprio provedor economiza sua banda de Internet externa.
+
+    Frequentemente, sites adicionam seu conteúdo estático em CDNs (Content Delivery Network) que são servidores otimizados para entrega de arquivos estáticos tanto em velocidade de entrega quando em manter os arquivos na localização mais próxima do usuário final.
+
+    Nós usamos CDN quando adicionamos "font-awesome" ao nosso site, lembra? O Django consegue lidar com arquivos estáticos no seu servidor ou em CDNs.
+
+    Alguns tipos de arquivos que podem ser considerados estáticos: imagens, vídeos, HTML, CSS, JavaScript, arquivos para download e assim por diante.
+
+    Vamos entender melhor como configurar os arquivos estáticos do nosso site Django ao longo das aulas dessa seção.
+
+    Documentação do Django sobre arquivos estáticos: https://docs.djangoproject.com/en/4.2/howto/static-files/
+    
+    É importante entender como carregar arquivos estáticos utilizando funcionalidade do Django, pois vamos mover nossos static files para uma pasta chamada 'static'
+    para melhor organização, essa pasta, quando criada dentro da pasta do App, o próprio django já consegue identificar, assim como a pasta 'templates', qualquer pasta
+    criada fora da pasta do App é necessário informar no 'settings.py' para que o Django consiga buscar os arquivos.
