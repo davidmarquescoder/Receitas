@@ -111,7 +111,17 @@
     Vamos entender melhor como configurar os arquivos estáticos do nosso site Django ao longo das aulas dessa seção.
 
     Documentação do Django sobre arquivos estáticos: https://docs.djangoproject.com/en/4.2/howto/static-files/
-    
+
     É importante entender como carregar arquivos estáticos utilizando funcionalidade do Django, pois vamos mover nossos static files para uma pasta chamada 'static'
     para melhor organização, essa pasta, quando criada dentro da pasta do App, o próprio django já consegue identificar, assim como a pasta 'templates', qualquer pasta
     criada fora da pasta do App é necessário informar no 'settings.py' para que o Django consiga buscar os arquivos.
+
+    Seu projeto provavelmente também terá recursos estáticos que não estão vinculados a um aplicativo específico. Além de usar um static/diretório dentro de seus aplicativos, você pode definir uma lista de diretórios (STATICFILES_DIRS) em seu arquivo de configurações onde o Django também procurará por arquivos estáticos. Por exemplo:
+
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+        "/var/www/static/",
+    ]
+
+    Consulte a documentação da STATICFILES_FINDERS (https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-STATICFILES_FINDERS) para obter detalhes sobre como staticfiles localiza seus arquivos.
+    
