@@ -55,6 +55,8 @@
 
     > Criar pasta/arquivo 'base_static/global/css/style.css' e configura-la no settings.py (STATICFILES_DIRS)
 
+    > Criar pasta 'base_templates/global' e configura-la no settings.py (TEMPLATES DIRS)
+
     > Configurar o STATIC_ROOT no arquivo settings.py
 
     > No arquivo 'settings.py' do projeto, adicione o nome do nosso App criado dentro da lista 'INSTALLED_APPS'
