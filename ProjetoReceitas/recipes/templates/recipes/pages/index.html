@@ -2,11 +2,8 @@
 
 {% block content %}
 <div class="main-content main-content-list container">
-    {% include 'recipes/partials/recipe_cards.html' %}
-    {% include 'recipes/partials/recipe_cards.html' %}
-    {% include 'recipes/partials/recipe_cards.html' %}
-    {% include 'recipes/partials/recipe_cards.html' %}
-    {% include 'recipes/partials/recipe_cards.html' %}
-    {% include 'recipes/partials/recipe_cards.html' %}
+    {% for receita in receitas %}
+        {% include 'recipes/partials/recipe_cards.html' %}
+    {% endfor %}
 </div>
 {% endblock content %}

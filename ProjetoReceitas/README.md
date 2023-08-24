@@ -1,3 +1,19 @@
+# Problemas com Ambiente virtual (Leia isso antes de criar seu ambiente virtual python)
+    Inicialmente eu estava utilizando o interpretador padrão do python no VsCode, porém na hora de quando criei meu ambiente virtual e ativei
+    ele não estava utilizando minhas configurações do ambiente, estava sendo utilizado minha configurações globais, então algumas instalações
+    de bibliotecas que havia feito no meu ambiente virtual não estava funcionando, o código acusava que eu não possuia aquela biblioteca mesmo
+    ela estando instalada no ambiente virtual ele não estava identificando, pois estava utilizando minha configs globais.
+
+    Para evitar isso, quando você estiver dentro de um arquivo '.py', no canto inferior direito do VsCode irá mostrar a versão do interpretador
+    que está utilizando, no meu caso, aqui consta para mim, duas versões:
+
+    > Python 3.11.4 64-bit
+    > Python 3.11.4 ('venv':venv)
+
+    A versão que eu estava utilizando inicialmente era 'Python 3.11.4 64-bit', porém estava constando o problema relatado a cima, alterando para a
+    versão 'Python 3.11.4 ('venv':venv)' o problema foi resolvido e o meu código passou a usar as configs do meu ambiente virtual, além disso, com
+    esse interpretador, o próprio VsCode já ativa automaticamente o ambiente.
+
 # Iniciando nosso Ambiente virtual
     Antes de tudo, lembre-se de criar e ativar seu ambiente virtual, pois é nele que vamos fazer as intalações necessárias para nosso projeto.
     Se o ambiente virtual não estiver ativo, as instalações dos pacotes serão feitas na máquina (geral) e não no ambiente, precisamos isolar
