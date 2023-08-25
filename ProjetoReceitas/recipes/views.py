@@ -17,6 +17,7 @@ def recipe(request, id):
         'title': 'Receita',
         'nome': 'David Marques',
         'receita': make_recipe(),
+        'is_detail_page': True,
     }
 
     return render(request, 'recipes/pages/recipe-view.html', context=utils)
