@@ -203,3 +203,10 @@
     > Senha (2x)
 
     Com esse dados você já pode acessar a área de admin do Django.
+
+# Imagens registradas no banco de dados
+    Após registrar uma imagem no banco de dados, se você tentar clicar no link da imagem, verá um erro na tela, isso acontece devido o Django
+    não estar servindo esses arquivos, para isso vamos precisar configurar algumas coisas dentro do nosso arquivo 'urls.py' do projeto.
+
+    Na documentação do Django ele indica que para que nós possamos servir esses arquivos, precisamos contatenar algumas coisas com o 'urlpatterns'
+    
