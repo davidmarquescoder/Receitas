@@ -162,4 +162,27 @@
 
     E esse comando vai coletar todos os arquivos estáticos do nosso projeto, e vai criar a pasta configurada com STATIC_ROOT e jogar esse arquivos dentro dessa pasta
     para que a gente possa usar esses arquivos quando entrar em produção.
-    
+
+# Banco de dados (Models)
+
+    # SOBRE IMAGENS
+    Para trabalhar com imagens no banco de dados, você precisará instalar a biblioteca 'pillow'
+    >>>> pip install pillow
+
+    Assim que você fizer sua primeira tabela, se ela conter um campo para imagens, ao tentar subir o servidor o django irá solicitar que instale essa biblioteca.
+
+    # SOBRE MIGRATIONS
+    Assim que você relizar alterações no banco de dados, como a criação de uma tabela ou até mesmo a edição de uma tabela, você precisará dos comandos:
+    >>>> 1| python manage.py makemigrations
+    >>>> 2| python manage.py migrate
+
+    Os comandos são executados na ordem a cima, o primeiro cria as migrações e o segundo faz a aplicação no banco de dados, caso o Django informe no terminal alguma mensagem em vermelho, falando sobre 'migrations', é porque existem migrações que não foram aplicadas, basta rodar o segundo comando (migrate).
+
+    Quando criamos nosso projeto Django e rodamos o servidor pela primeira vez, ele mostra essa mensagem informando das migrações que precisam ser aplicadas, isso acontece
+    devido o Django criar as tabelas do Admin e as migrações ficam pendentes de aplicação, basta rodar o segundo comando (migrate) que a mensagem sairá.
+
+    Isso é necessário para fazer a sinconização do seu código com a base de dados e atualizar e aplicar as alterações realizadas.
+    Sempre que houver migrações a serem aplicadas, o django te avisará no terminal quando você subir o servidor, para resolver, basta rodar o comando 'migrate'.
+    Sempre que você rodar o comando makemigrations, dentro da pasta 'migrations' do App, será criado um arquivo com as informações da migração realizada.
+
+    OBS: Quando criar suas tabelas, não é necessário criar um campo 'id' pois o Django faz isso automaticamente para você no momento em que você rodar o makemigrations.
