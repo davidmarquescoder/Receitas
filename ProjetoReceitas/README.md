@@ -185,4 +185,21 @@
     Sempre que houver migrações a serem aplicadas, o django te avisará no terminal quando você subir o servidor, para resolver, basta rodar o comando 'migrate'.
     Sempre que você rodar o comando makemigrations, dentro da pasta 'migrations' do App, será criado um arquivo com as informações da migração realizada.
 
+    # SOBRE ADMIN E MODELS
+    Para que meus models (banco de dados) apareçam na minha área administrativa, é necessário registrar eles no arquivo 'admin.py' do App.
+
     OBS: Quando criar suas tabelas, não é necessário criar um campo 'id' pois o Django faz isso automaticamente para você no momento em que você rodar o makemigrations.
+
+# Super Usuário (superuser)
+    O Django possui uma área de administrador, para acessar essa área, basta colocar na url do seu site '/admin'
+    porém você não irá conseguir logar, pois não possui um usuário registrado, devido isso vamos criar um.
+
+    Para criar um super usuário (Usuário com todos os privilégios de admin) você precisa rodar o comando:
+    >>>> python manage.py createsuperuser
+
+    Assim que você fizer isso, no próprio terminal, será solicitado alguns dados para a criação do seu usuário administrador:
+    > Nome de usuário
+    > E-mail
+    > Senha (2x)
+
+    Com esse dados você já pode acessar a área de admin do Django.
