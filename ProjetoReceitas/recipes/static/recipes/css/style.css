@@ -178,6 +178,15 @@ h1,h2,h3,h4,h5,h6{
     padding-bottom: 2rem;
 }
 
+.recipe-title-container a{
+    text-decoration: none;
+    color: var(--color-primary-dark);
+}
+
+.recipe-title-container a:hover{
+    color: var(--color-primary-dark-hover);
+}
+
 .recipe-author{
     padding: 0 var(--spacing-gutter-medium);
 }
