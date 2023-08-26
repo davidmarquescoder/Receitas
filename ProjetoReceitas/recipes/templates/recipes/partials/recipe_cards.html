@@ -24,14 +24,14 @@
         </span>
 
         <span class="recipe-author-item">
-            <a href="/recipes/category/cafe-da-manha/">
+            <a href="{% url 'recipes:category' receita.category.id %}">
                 <i class="fas fa-layer-group"></i>
                 <span>{{receita.category.name}}</span>
             </a>
         </span>
     </div>
     <div class="recipe-content">
-        <p>
+        <p class="description-card">
             {{receita.description}}
         </p>
     </div>
@@ -40,13 +40,13 @@
         <div class="recipe-meta recipe-preparation">
             <h3 class="recipe-meta-title"><i class="fas fa-stopwatch"></i> Preparo</h3>
             <div class="recipe-meta-text">
-                {{receita.preparation_time}} Minutos
+                {{receita.preparation_time}} {{receita.preparation_time_unit}}
             </div>
         </div>
         <div class="recipe-meta recipe-servings">
             <h3 class="recipe-meta-title"><i class="fas fa-pizza-slice"></i> Porções</h3>
             <div class="recipe-meta-text">
-                {{receita.servings}} Porções
+                {{receita.servings}} {{receita.servings_unit}}
             </div>
         </div>
     </div>
@@ -62,7 +62,9 @@
     {% if is_detail_page is True %}
     <div class="preparation-steps">
         <!--Usando 'pipes' (|) você consegue utilizar filtros do Django-->
-        {{receita.preparation_steps|linebreaksbr}}
+        <p class="preparation-description">
+            {{receita.preparation_steps|linebreaksbr}}
+        </p>
     </div>
     {% endif %}
 

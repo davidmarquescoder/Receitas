@@ -1,23 +1,35 @@
 from django.shortcuts import render
 from utils.testing.factory import make_recipe
+from recipes.models import Recipe
 
 # Create your views here.
 def home(request):
-    utils = {
+    recipes = Recipe.objects.all().order_by('-id')
+    utils_1 = {
         'title': 'HomePage',
         'nome': 'David Marques',
-        'receitas': [make_recipe() for _ in range(9)],
+        'receitas': recipes,
     }
 
-    return render(request, 'recipes/pages/index.html', context=utils)
+    return render(request, 'recipes/pages/index.html', context=utils_1)
+
+def category(request, category_id):
+    recipes = Recipe.objects.filter(category__id=category_id).all().order_by('-id')
+    utils_2 = {
+        'title': 'Categoria',
+        'nome': 'David Marques',
+        'receitas': recipes,
+    }
+
+    return render(request, 'recipes/pages/index.html', context=utils_2)
 
 # O parâmetro 'id' deve ser obrigatoriamente passado aqui na view.
 def recipe(request, id):
-    utils = {
+    utils_3 = {
         'title': 'Receita',
         'nome': 'David Marques',
-        'receita': make_recipe(),
+        'receitas': make_recipe(),
         'is_detail_page': True,
     }
 
-    return render(request, 'recipes/pages/recipe-view.html', context=utils)
+    return render(request, 'recipes/pages/recipe-view.html', context=utils_3)
