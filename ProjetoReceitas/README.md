@@ -50,6 +50,8 @@
 
     > django-admin startapp NomeDoApp >>> Iniciar um App Django
 
+    > python manage.py shell >>> Inicia o shell do django para manipular o banco de dados
+
     OBS: Após a criação do nosso projeto, passaremos a utilizar o manage.py ao invés do Django-admin, eles dois são bem parecidos, porém o manage.py carrega as informações do nosso projeto.
 
 # Vamos criar nosso primeiro App
@@ -208,5 +210,39 @@
     Após registrar uma imagem no banco de dados, se você tentar clicar no link da imagem, verá um erro na tela, isso acontece devido o Django
     não estar servindo esses arquivos, para isso vamos precisar configurar algumas coisas dentro do nosso arquivo 'urls.py' do projeto.
 
-    Na documentação do Django ele indica que para que nós possamos servir esses arquivos, precisamos contatenar algumas coisas com o 'urlpatterns'
+    Na documentação do Django ele indica que para que nós possamos servir esses arquivos, precisamos concatenar algumas coisas com o 'urlpatterns'
+
+# Django Shell
+    DOC - https://docs.djangoproject.com/pt-br/3.2/ref/models/querysets/
     
+    - Para inciar o shell do django no terminal, use o comando:
+        >>>> python manage.py shell
+
+    - Para fazer manipulações no seu banco de dados através do Shell, você deve importar seu banco de dados no terminal do Shell:
+        >>>> from recipes.models import Category, Recipe | Importando minhas models no Shell
+
+    - Após isso, temos alguns comandos interessantes para testar:
+        >>>> categories = Category.objects.all() | Passando todos os objetos da classe 'Category' para dentro da variável 'categories'
+        >>>> categories | Visualizando a variável (print)
+
+        >>>> categories[0].name | Visualizando o nome de index 0
+        >>>> categories[0].id | Visualizando o id de index 0
+
+    - Ordenando a exibição dos dados pelo ID
+        >>>> categories.order_by('-id') | Exibindo todos os objetos por ordem decrescente do ID
+        >>>> categories.order_by('id') | Exibindo todos os objetos por ordem crescente do ID
+        >>>> for c in categories:print(c) | Usando um laço for no Shell para exibir todos os objetos isoladamente
+        >>>> for c in categories.order_by('-id'):print(c) | Usando um laço para exibir todos os objetos por ordem decrescente do ID
+
+    - Podemos também criar uma nova categoria instaciando nossa classe dentro do shell.
+        Ex:
+        >>>> new_category = Category() | Instaciando a classe do nosso model e criando um novo objeto a partir dela
+        >>>> new_category.name = 'NomeDaCategoria' | Passando para esse objeto o nome que eu quero atribuir para ele (Campo name)
+        >>>> new_category | Visualizando o objeto criado (Print)
+        >>>> new_category.save() | Salvando o objeto criado no banco de dados
+        
+        - Ou você pode fazer direto assim:
+        >>>> new_category = Category.objects.create(name='NomeDaCategoria') | Criando uma categoria de forma direta em uma linha
+
+        - Caso queria apagar do banco:
+        >>>> new_category.delete()
