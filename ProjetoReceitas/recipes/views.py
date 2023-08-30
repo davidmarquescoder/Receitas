@@ -16,7 +16,7 @@ def home(request):
 def category(request, category_id):
     recipes = Recipe.objects.filter(category__id=category_id, is_published=True).all().order_by('-id')
     utils_2 = {
-        'title': 'Categoria',
+        'title': f'{recipes.first().category.name} | Categoria Receita',
         'nome': 'David Marques',
         'receitas': recipes,
     }
