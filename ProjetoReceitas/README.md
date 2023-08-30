@@ -214,7 +214,7 @@
 
 # Django Shell
     DOC - https://docs.djangoproject.com/pt-br/3.2/ref/models/querysets/
-    
+
     - Para inciar o shell do django no terminal, use o comando:
         >>>> python manage.py shell
 
@@ -246,3 +246,6 @@
 
         - Caso queria apagar do banco:
         >>>> new_category.delete()
+    
+    - Criando um usuário (normal) pelo Shell
+        >>>> User.objects.create_user(first_name = 'David', last_name = 'Marques', username = 'davidmso' email = 'davidmarques99@hotmail.com' password = '123456')
