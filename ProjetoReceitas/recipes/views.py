@@ -35,10 +35,12 @@ def category(request, category_id):
 
 # O parâmetro 'id' deve ser obrigatoriamente passado aqui na view.
 def recipe(request, id):
+    recipe = Recipe.objects.filter(pk=id, is_published=True).order_by('-id').first()
+
     utils_3 = {
         'title': 'Receita',
         'nome': 'David Marques',
-        'receitas': make_recipe(),
+        'receita': recipe,
         'is_detail_page': True,
     }
 
