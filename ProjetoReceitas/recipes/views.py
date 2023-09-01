@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from utils.testing.factory import make_recipe
 from recipes.models import Recipe
 #from django.http import Http404
@@ -35,10 +35,11 @@ def category(request, category_id):
 
 # O parâmetro 'id' deve ser obrigatoriamente passado aqui na view.
 def recipe(request, id):
-    recipe = Recipe.objects.filter(pk=id, is_published=True).order_by('-id').first()
+    # Aula 66 seção 8 - Antes: recipe = Recipe.objects.filter(pk=id, is_published=True).order_by('-id').first()
+    recipe = get_object_or_404(Recipe, pk=id, is_published=True)
 
     utils_3 = {
-        'title': 'Receita',
+        'title': recipe.title,
         'nome': 'David Marques',
         'receita': recipe,
         'is_detail_page': True,
