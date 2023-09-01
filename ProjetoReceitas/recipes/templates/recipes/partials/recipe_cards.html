@@ -70,10 +70,15 @@
 
     {% if is_detail_page is True %}
     <div class="preparation-steps">
+        {% if receita.preparation_steps_is_html is True %}
+        <!--Aceitar HTML dos usuários é algo inseguro que pode gerar transtornos, devido isso precisamos informar para o django que o que estamos recebendo é seguro (safe)-->
+            {{receita.preparation_steps|safe}}
+        {% else %}
         <!--Usando 'pipes' (|) você consegue utilizar filtros do Django-->
         <p class="preparation-description">
             {{receita.preparation_steps|linebreaksbr}}
         </p>
+        {% endif %}
     </div>
     {% endif %}
 
